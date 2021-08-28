@@ -37,7 +37,9 @@ def AddEnquiry():
     insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-    if 
+    if emp_image_file.filename == "":
+        return "Please select a file"
+    
         cursor.execute(insert_sql, (name , email , cont_no ,Details ))
         db_conn.commit()
         name = "" + email + " " + cont_no + " "Details
