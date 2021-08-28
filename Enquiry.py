@@ -25,7 +25,6 @@ def home():
     return render_template('AddEnquiry.html')
 
 
-
 @app.route("/addenquiry", methods=['POST'])
 def AddEnquiry():
     name = request.form['name']
@@ -35,26 +34,8 @@ def AddEnquiry():
     
 
     insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
-    cursor = db_conn.cursor()
-
-   # if emp_image_file.filename == "":
-    #    return "Please select a file"
     
-        cursor.execute(insert_sql, (name , email , cont_no ,Details ))
-        db_conn.commit()
-       
-    
-        try:
-            print("Data inserted in MySQL RDS... ")
-           
-
-        except Exception as e:
-            return str(e)
-
-  ##  finally:
-        cursor.close()
-
-    print("all modification done...")
+   
     return render_template('EnquiryOutput.html')
 
 
