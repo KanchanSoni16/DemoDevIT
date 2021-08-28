@@ -42,7 +42,7 @@ def AddEnquiry():
     
         cursor.execute(insert_sql, (name , email , cont_no ,Details ))
         db_conn.commit()
-        name = "" + email + " " + cont_no + " "Details
+       
     
         try:
             print("Data inserted in MySQL RDS... ")
