@@ -37,8 +37,8 @@ def AddEnquiry():
     insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-    if emp_image_file.filename == "":
-        return "Please select a file"
+   # if emp_image_file.filename == "":
+    #    return "Please select a file"
     
         cursor.execute(insert_sql, (name , email , cont_no ,Details ))
         db_conn.commit()
@@ -51,7 +51,7 @@ def AddEnquiry():
         except Exception as e:
             return str(e)
 
-    finally:
+  ##  finally:
         cursor.close()
 
     print("all modification done...")
