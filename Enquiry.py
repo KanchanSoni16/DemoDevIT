@@ -37,9 +37,12 @@ def AddEnquiry():
     
 
  #  print("Data inserted in MySQL RDS... ")
-       # return render_template('EnquiryOutput.html')
+
+    @app.route("/about", methods=['POST'])
+def about():    
+    return render_template('EnquiryOutput.html')
     
-    webbrowser.open_new_tab('EnquiryOutput.html')
+ 
 
 
 if __name__ == '__main__':
