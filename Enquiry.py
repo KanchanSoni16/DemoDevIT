@@ -38,8 +38,8 @@ def AddEnquiry():
 
  #  print("Data inserted in MySQL RDS... ")
 
-    @app.route("/about", methods=['POST'])
-def about():    
+    @app.route("/", methods=['POST'])
+def home():    
     return render_template('EnquiryOutput.html')
     
  
