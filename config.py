@@ -1,0 +1,5 @@
+customhost = "enquiry.c5hxdfnlruu5.us-east-1.rds.amazonaws.com"
+customuser = "enquiry"
+custompass = "enquiry123"
+customdb = "enquiry"
+customregion = "us-east-1"
