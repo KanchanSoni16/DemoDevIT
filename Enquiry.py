@@ -27,8 +27,8 @@ def home():
 
 @app.route("/addenquiry", methods=['POST'])
 def AddEnquiry():
-    name = request.form['name']
-    email = request.form['email']
+    full_name = request.form['full_name']
+    mail = request.form['mail']
     cont_no = request.form['cont_no']
     Details = request.form['Details']
     
@@ -36,7 +36,7 @@ def AddEnquiry():
     insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
     
     print("Data inserted in MySQL RDS... ")
-       # return render_template('EnquiryOutput.html')
+        return render_template('EnquiryOutput.html', 0)
 
 
 if __name__ == '__main__':
