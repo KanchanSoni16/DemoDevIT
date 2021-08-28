@@ -13,4 +13,4 @@ sudo apt-get install python3-pymysql
 
 
 # for running application
-sudo python3 AddEnquiry.py
+sudo python3 Enquiry.py
