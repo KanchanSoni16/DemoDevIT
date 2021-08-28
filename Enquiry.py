@@ -35,9 +35,7 @@ def AddEnquiry():
 
     insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
     
-    except Exception as e:
-            return str(e)
-    
+
    print("Data inserted in MySQL RDS... ")
        # return render_template('EnquiryOutput.html')
 
