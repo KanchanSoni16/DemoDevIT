@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
     <title>Enquiry Form</title>
 </head>
 
 <center>
     <font color="black" size="4" style="font-family: avenir">
+        
 <body bgcolor="lightgrey">
 
 <link href="contact-form.css" rel="stylesheet">
@@ -14,9 +14,9 @@
 <div class="fcf-body">
 
     <div id="fcf-form">
-    <h1 class="fcf-h3">Enquiry Form</h1>
+    <h1 style="color: DodgerBlue">Enquiry Form</h1>
 
-    <form id="fcf-form-id" class="fcf-form-class" method="post" action="/addenquiry">
+    <form  action="/addenquiry" autocomplete="on" method = "POST" enctype="multipart/form-data"  id="fcf-form-id" class="fcf-form-class"  >
         
         <div class="fcf-form-group">
             <label for="Name" class="fcf-label">Your name</label>
@@ -46,8 +46,8 @@
             </div>
         </div>
 
-        <div class="fcf-form-group">
-            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Submit</button>
+        <div >
+            <button  type="submit" style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;" >Submit</button>
         </div>
 
     </form>
