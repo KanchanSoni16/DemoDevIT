@@ -36,8 +36,10 @@ def AddEnquiry():
     insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
     
 
-   print("Data inserted in MySQL RDS... ")
+ #  print("Data inserted in MySQL RDS... ")
        # return render_template('EnquiryOutput.html')
+    
+    webbrowser.open_new_tab('EnquiryOutput.html')
 
 
 if __name__ == '__main__':
