@@ -32,8 +32,11 @@ def AddEnquiry():
     cont_no = request.form['cont_no']
     Details = request.form['Details']
     
-
-    INSERT INTO enquiry VALUES (full_name, mail , cont_no ,Details )    
+mycursor = db_conn.cursor()
+  sql = "INSERT INTO enquiry (full_name, mail , cont_no ,Details ) VALUES (%s, %s ,%s , %s) "
+    val = (full_name, mail , cont_no ,Details )
+mycursor.execute(sql, val)
+db_conn.commit()
 
    return render_template('EnquiryOutput.html')
 
