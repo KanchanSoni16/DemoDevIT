@@ -33,16 +33,9 @@ def AddEnquiry():
     Details = request.form['Details']
     
 
-    insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
-    
+    INSERT INTO enquiry VALUES (full_name, mail , cont_no ,Details )    
 
- #  print("Data inserted in MySQL RDS... ")
-
-  
-    return render_template('EnquiryOutput.html')
-    
- 
-
+   return render_template('EnquiryOutput.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
