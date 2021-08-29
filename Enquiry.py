@@ -1,14 +1,12 @@
 from flask import Flask, render_template, request
-from pymysql import connections
-import os
-import boto3
+import pymysql
 from config import *
 
 app = Flask(__name__)
 
 region = customregion
 
-db_conn = connections.Connection(
+db_conn = pymysql.connect(
     host=customhost,
     port=3306,
     user=customuser,
@@ -31,13 +29,19 @@ def AddEnquiry():
     mail = request.form['mail']
     cont_no = request.form['cont_no']
     details = request.form['details']
-    sql = "INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"
+    sql = "INSERT INTO enquiry (name, email, cont_no, Details) VALUES (%s, %s, %s, %s)"
+    print(db_conn)
     mycursor = db_conn.cursor()
+    print(mycursor)
     try: 
-        mycursor.execute(sql, (full_name, mail, cont_no, details))
+        mycursor.execute(sql, (full_name,mail,cont_no,details))
         db_conn.commit()
-    except:
+    except Exception as e:
+        print("Rolling back the commit.".format(e))
+        print(e)
         db_conn.rollback()
+    finally:
+        db_conn.close()
     return render_template('EnquiryOutput.html')
 
 if __name__ == '__main__':
