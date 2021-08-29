@@ -31,8 +31,6 @@ def AddEnquiry():
     mail = request.form['mail']
     cont_no = request.form['cont_no']
     details = request.form['details']
-   
-          
     sql = "INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"
     mycursor = db_conn.cursor()
     try: 
