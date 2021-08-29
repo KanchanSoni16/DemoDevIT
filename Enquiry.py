@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from pymysql import connections
+from pymysql import mysql.connections
 import os
 import boto3
 from config import *
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 region = customregion
 
-db_conn = connections.Connection(
+db_conn = mysql.connections.Connection(
     host=customhost,
     port=3306,
     user=customuser,
