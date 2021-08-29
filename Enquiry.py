@@ -33,18 +33,14 @@ def AddEnquiry():
     details = request.form['details']
    
           
-   sql = "INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"
-        mycursor = db_conn.cursor()
-    
+    sql = "INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"
+    mycursor = db_conn.cursor()
     try: 
         mycursor.execute(sql, (full_name, mail, cont_no, details))
-           
         db_conn.commit()
-        
-        except: 
-            db_conn.rollback()
-
-   return render_template('EnquiryOutput.html')
+    except:
+        db_conn.rollback()
+    return render_template('EnquiryOutput.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
