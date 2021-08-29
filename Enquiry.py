@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from pymysql import mysql.connections
+from pymysql import connections
 import os
 import boto3
 from config import *
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 region = customregion
 
-db_conn = mysql.connections.Connection(
+db_conn = connections.Connection(
     host=customhost,
     port=3306,
     user=customuser,
@@ -33,9 +33,9 @@ def AddEnquiry():
     Details = request.form['Details']
     
 mycursor = db_conn.cursor()
-  sql = "INSERT INTO enquiry (full_name, mail , cont_no ,Details ) VALUES (%s, %s ,%s , %s) "
-    val = (full_name, mail , cont_no ,Details )
-mycursor.execute(sql, val)
+  sql = "INSERT INTO enquiry VALUES (%s, %s ,%s , %s) "
+   # val = (kanchan, mail , cont_no ,Details )
+mycursor.execute(sql)
 db_conn.commit()
 
    return render_template('EnquiryOutput.html')
