@@ -15,8 +15,8 @@ db_conn = mysql.connector.Connection(
     user=customuser,
     password=custompass,
     db=customdb
-
 )
+
 output = {}
 table = 'enquiry'
 
@@ -34,7 +34,7 @@ def AddEnquiry():
     details = request.form['details']
    
           
-   sql = """INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"""
+   sql = ""INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)""
         mycursor = db_conn.cursor()
     
     try: 
