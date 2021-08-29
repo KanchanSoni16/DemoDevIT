@@ -34,7 +34,7 @@ def AddEnquiry():
     details = request.form['details']
    
           
-   sql = "INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"
+   sql = """INSERT INTO enquiry VALUES(%s, %s, %s, %s, %s)"""
         mycursor = db_conn.cursor()
     
     try: 
