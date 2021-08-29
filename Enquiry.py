@@ -32,9 +32,9 @@ def AddEnquiry():
     cont_no = request.form['cont_no']
     Details = request.form['Details']
    
-    sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
+   insert_sql = "INSERT INTO enquiry VALUES (%s, %s, %s, %s)"
         mycursor = db_conn.cursor()
-             mycursor.execute(sql)
+             mycursor.execute(insert_sql, (full_name, mail, cont_no, Details))
         db_conn.commit()
 
    return render_template('EnquiryOutput.html')
