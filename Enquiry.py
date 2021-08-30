@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
 import pymysql
-from config import *
+import config
+customhost,customuser,custompass,customdb = config.get_secret()
 
 app = Flask(__name__)
 
-region = customregion
+region = config.customregion
 
 db_conn = pymysql.connect(
     host=customhost,
@@ -30,9 +31,9 @@ def AddEnquiry():
     cont_no = request.form['cont_no']
     details = request.form['details']
     sql = "INSERT INTO enquiry (name, email, cont_no, Details) VALUES (%s, %s, %s, %s)"
-    print(db_conn)
+    #print(db_conn)
     mycursor = db_conn.cursor()
-    print(mycursor)
+    #print(mycursor)
     try: 
         mycursor.execute(sql, (full_name,mail,cont_no,details))
         db_conn.commit()
@@ -40,8 +41,6 @@ def AddEnquiry():
         print("Rolling back the commit.".format(e))
         print(e)
         db_conn.rollback()
-    finally:
-        db_conn.close()
     return render_template('EnquiryOutput.html')
 
 if __name__ == '__main__':
